@@ -111,8 +111,10 @@ class App {
            // int indexCloseTag = indexOpenTag + indexOpenTagClose+1;
             sb.replace(indexOpenTag, indexOpenTagEnd+1, "");
             int indexCloseTag = sb.indexOf(tagEnd);
-            int indexCloseTagEnd = sb.indexOf(">",indexCloseTag);
-            sb.replace(indexCloseTag, indexCloseTagEnd+1, "");
+            if(indexCloseTag >=0){
+                int indexCloseTagEnd = sb.indexOf(">",indexCloseTag);
+                sb.replace(indexCloseTag, indexCloseTagEnd+1, "");
+            }
         }  
         return sb.toString();
     }
